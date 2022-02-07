@@ -1,0 +1,58 @@
+using System;
+
+namespace string_to_char
+{
+    class Program
+    {
+            //Task - 2
+            //Gonderilmis ededin reqemlerinin cemini qaytaran metod - misalcun bu metodu 
+            //call ederken arqument olaraq 451 gondersek metoddan geriye 10 qayitmalidir
+        static void Main()
+        {
+
+            int a = 0;
+
+            bool check = true;
+            Console.Write("Eded daxil edin ");
+
+            while (check)
+            {
+                int.TryParse(Console.ReadLine(), out a);
+                if (check && a >= 0)
+                {
+                 
+                    break;
+                }
+                else
+                {
+                   
+                    Console.WriteLine("Xahish edirik duzgun eded daxil edin");
+                }
+            }
+
+
+            Console.WriteLine($"{a} ededinin reqemleri cemi {NumberSum(a)}");
+        }
+
+        static int NumberSum(int a)
+        {
+            int temp = 0;
+            int sum = 0;
+            while(a!=0)
+            {
+                temp = a % 10;
+                sum = sum + temp;
+                a = (a - a % 10) / 10;
+                
+
+
+            }
+            return sum;
+        }
+
+
+        
+  
+    }
+
+}

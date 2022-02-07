@@ -1,0 +1,75 @@
+using System;
+
+namespace string_to_char
+{
+    class Program
+
+    {
+
+        static void Main(string[] args)
+        { bool check=true;
+            double c =0;
+            double b = 0;
+            double a = 0;
+            Console.WriteLine("Qiymetleri daxil edin");
+            
+            while (check)
+            {
+                double.TryParse(Console.ReadLine(), out  a);
+                if (check && a >= 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Qiymetleri duzgun daxil edin");
+                }
+            }
+            while (check)
+            {
+                double.TryParse(Console.ReadLine(), out b);
+                if (check && b >= 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Qiymetleri duzgun daxil edin");
+                }
+            } while (check)
+            {
+                double.TryParse(Console.ReadLine(), out c);
+                if (check && c >= 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Qiymetleri duzgun daxil edin");
+                }
+            }
+
+            Console.WriteLine($"Sizin odeyeceyiniz mebleg {MarketKompaniyasi(a, b, c)} manatdir.");
+
+        }
+        static double MarketKompaniyasi(double a,double b,double c)
+        {
+            double max1=a > b ? (a > c ? a : c) : (b > c ? b : c);
+            double max2 = 0;
+            if (max1 == a)
+            {
+                max2 = b > c ? b : c;
+            }
+            else if (max1 == b)
+            {
+                max2 = a > c ? a : c;
+            }
+            else if(max1 == c)
+            {
+                max2 = a > b ? a : b;
+            }
+
+            return max1 + max2;
+        }
+    }
+}

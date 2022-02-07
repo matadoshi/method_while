@@ -1,0 +1,93 @@
+using System;
+
+namespace string_to_char
+{
+    class Program
+    {
+       
+        static void Main()
+        {
+            //Task - 1
+            //Gonderilmis 3 ededin en boyuyunu tapib qaytaran metod -3 integer parametr qebul edir ve iclerinde en boyuk hansidirsa onu tapib 
+            //return edir Eyni sekilde verilmis 4 ve 5 ededin en boyuyunu tapan metodlar da yazin(method overloading)
+            //QEYD:
+            //butun bu metodlari islederken console - dan deyer qebul ederek 
+            //emeliyyat aparin ve istifadecini duzgun deyer daxil etmeye mecbur edin
+
+
+            Console.WriteLine("Reqem sayini daxil edin");
+            int number = 0;
+            bool check = true;
+            int a, b, c, d, e ;
+
+            while (check)
+            {
+                check = int.TryParse(Console.ReadLine(), out number);
+                if(check && number>2 && number < 6)
+                {
+                    break;
+
+                }
+                else
+                {
+                    check = true;
+                    Console.WriteLine("Xahish edirik reqemi duzgun daxil edin");
+                }
+            }
+
+            switch (number)
+            {
+                case 3:
+
+                    int.TryParse(Console.ReadLine(), out a);
+                    int.TryParse(Console.ReadLine(), out  b);
+                    int.TryParse(Console.ReadLine(), out  c);
+                  
+                    Console.WriteLine(numberLargest(a, b, c));
+                    break;
+                case 4:
+
+                    int.TryParse(Console.ReadLine(), out a);
+                    int.TryParse(Console.ReadLine(), out b);
+                    int.TryParse(Console.ReadLine(), out c);
+                    int.TryParse(Console.ReadLine(), out d);
+                   
+                    Console.WriteLine(numberLargest(a, b, c,d));
+                    break;
+
+                case 5:
+
+                    int.TryParse(Console.ReadLine(), out  a);
+                    int.TryParse(Console.ReadLine(), out  b);
+                    int.TryParse(Console.ReadLine(), out  c);
+                    int.TryParse(Console.ReadLine(), out  d);
+                    int.TryParse(Console.ReadLine(), out  e);
+                    Console.WriteLine(numberLargest(a, b, c,d,e));
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        }
+        static int numberLargest (int a,int b,int c)
+        {
+            return (a > b ? (a > c ? a : c) : (b > c ? b : c));
+               
+        }
+        static int numberLargest(int a, int b, int c,int d)
+        {
+            int max2 = numberLargest(a, b, c);
+            return max2 > d ? max2 : d;
+        }
+        static int numberLargest(int a, int b, int c,int d, int e)
+        {
+            int max3 = numberLargest(a, b, c, d);
+            return max3 > e ? max3 : e;
+            
+        }
+
+    }
+
+}
